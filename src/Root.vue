@@ -134,7 +134,7 @@
   }
   .playing {
     border: 5px solid #fff;
-    border-radius: 3px;
+    border-radius: 8px;
   }
   input {
     border-radius: 1px;
