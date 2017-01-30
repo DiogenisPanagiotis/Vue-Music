@@ -1,7 +1,7 @@
 {
-  "name": "vueme",
+  "name": "vue application",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vue, listen and enjoy!",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
