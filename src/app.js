@@ -7,13 +7,13 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 let router = new VueRouter({
-    routes: [
-        {
-            path: '/',
-            name: 'root',
-            component: Root
-        }
-    ]
+  routes: [
+    {
+      path: '/',
+      name: 'root',
+      component: Root
+    }
+  ]
 });
 
 new Vue({

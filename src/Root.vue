@@ -4,8 +4,7 @@
         <div class="col-md-6 col-md-offset-3">
           <br>
             <div class='filter'>
-              <input type='text' class='form-control' id="query" v-model='liveFilter' placeholder="Search for album..."></input>
-              <button type="submit" @click='search()' id="search" class="btn btn-danger">Search</button>
+              <input type='text' v-on:keyup.enter='search()' class='form-control fontAwesome' id="query" placeholder="&#xf002;"></input>
             </div>
         </div>
       </div>
@@ -122,31 +121,29 @@
   h5 {
     display: inline;
   }
-  .btn {
-    display: inline-block;
-  }
-  #query {
-    width: 400px;
-    display: inline;
-  }
   .albums {
-    /*padding: 10px;*/
     padding-left: 10px;
-
-    /*margin-left: 15px;*/
     display: inline;
   }
   .rounded {
     border-radius: 3px;
     margin-bottom: 10px;
   }
-
   .rounded:hover {
     cursor: pointer;
   }
-
   .playing {
-    border: 3px solid #222;
-
+    border: 5px solid #fff;
+    border-radius: 3px;
+  }
+  input {
+    border-radius: 1px;
+  }
+  input:focus {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+  .fontAwesome {
+    font-family: 'Helvetica', FontAwesome, sans-serif;
   }
 </style>
