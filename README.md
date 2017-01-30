@@ -2,7 +2,7 @@ This project was created using Vue.js, Node.js, & Express.js.
 
 ##Demo
 
-https://vue-music.herokuapp.com/#/
+https://vue-music.herokuapp.com
 
 ## Description
 
