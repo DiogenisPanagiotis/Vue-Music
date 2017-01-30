@@ -14,94 +14,65 @@
             <div class='albums' v-for="album in albums">
               <img @click='playAlbum' class='rounded' height='127' width='127' :src='album[0]' :albumId='album[2]' :alt='album[1]'>  
             </div>
-            <div id="results"></div>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-  let apiUrl = 'https://api.diffbot.com/v3/article?token=85d8d8153c7cc8c0e7ad942e48962737&url=';
-  let clientID = 'a070e36c949448e7bc86260892b70b9d';
-  let clientSecret = 'ee10c8bfe56348489c68d64dd702a9ce';
-  let resultsPlaceholder = document.getElementById('results');
-  let audioObject = null;
   import $ from 'jquery';
+  let audioObject = null;
 
   export default {
     data(){
       return {
         albums: [],
-        liveFilter: ''
       }
     }, 
     mounted(){
       this.getArticles();
     },
-    computed: {
-      cool: function(){
-        return this.albums;
-      }
-    },
     methods: {
-      getArticles: function(){
-        // this.$http.get(apiUrl + 'http://blog.diffbot.com/diffbots-new-product-api-teaches-robots-to-shop-online')
-        // this.$http.get('https://api.spotify.com/v1/search/wayne')
-        // .then(res => {
-        //   console.log('API RESPONSE: ', res.body);
-        //   // this.articles = res.body.objects[0]; unhide this one
-        //   // console.log(this.articles.images[0].url, 'yooo');
-        // }, err => {
-        //   console.log(err);
-        // });
-      },
       search: function(query){
         this.albums = [];
         query = document.getElementById('query').value;
         let that = this;
-        $.ajax({
-            url: 'https://api.spotify.com/v1/search',
-            data: {
-                q: query,
-                type: 'album'
-            },
-            success: function (res) {
-                for (var i = 0; i < res.albums.items.length; i++){
-                  let image = res.albums.items[i].images[0].url;
-                  let title = res.albums.items[i].name;
-                  let albumId = res.albums.items[i].id;
-                  that.albums.push([image, title, albumId]);
-                }
+
+        this.$http.get('https://api.spotify.com/v1/search', {params:  {query: query, type: 'album'}})
+          .then(res => {
+            for (var i = 0; i < res.body.albums.items.length; i++){
+              let image = res.body.albums.items[i].images[0].url;
+              let title = res.body.albums.items[i].name;
+              let albumId = res.body.albums.items[i].id;
+              that.albums.push([image, title, albumId]);
             }
         });
       },
       fetchTracks: function (albumId, cb) {
-        $.ajax({
-          url: 'https://api.spotify.com/v1/albums/' + albumId,
-          success: function (res) {
-              cb(res);
-          }
-        });
+        this.$http.get('https://api.spotify.com/v1/albums/' + albumId)
+          .then(res => {
+            cb(res.body);
+          });
       },
       playAlbum: function(e){
         let targ = e.target;
         let playing = 'playing';
 
          if (targ !== null) {
-          if (targ.classList.contains(playing)) {
+          if (targ.classList.contains(playing)){
               audioObject.pause();
           } else {
-            if (audioObject) {
+            if (audioObject){
                 audioObject.pause();
             }
-            this.fetchTracks(targ.getAttribute('albumId'), function (data) {
+            this.fetchTracks(targ.getAttribute('albumId'), function(data){
                 audioObject = new Audio(data.tracks.items[0].preview_url);
                 audioObject.play();
                 targ.classList.add(playing);
-                audioObject.addEventListener('ended', function () {
+                audioObject.addEventListener('ended', function(){
                     targ.classList.remove(playing);
                 });
-                audioObject.addEventListener('pause', function () {
+                audioObject.addEventListener('pause', function(){
                     targ.classList.remove(playing);
                 });
             });
