@@ -164,10 +164,11 @@
     height: 100px;
     width: 555px;
     border-radius: 3px;
-    background-color: #3897f0;
+    background-color: #7C5CD1;
+    /*background-color: #3897f0;*/
   }
   .glostick {
-    background-color: #867DCC;
+    background: linear-gradient(to right, #8D728A, #F17A87);
     border-radius: 3px;
     width: 555px;
     height: 100px;
@@ -219,6 +220,6 @@
     height: 100px;
     width: 555px;
     border-radius: 3px;
-    background-color: #3897f0
+    background-color: #7C5CD1;
   }
 </style>
