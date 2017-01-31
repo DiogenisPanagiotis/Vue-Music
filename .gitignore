@@ -5,7 +5,6 @@ logs
 npm-debug.log*
 
 dist
-
 build.js
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
