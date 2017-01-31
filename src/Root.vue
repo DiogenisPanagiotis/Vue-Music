@@ -3,8 +3,12 @@
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
           <br>
+            <div class='head'>
+              <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+            </div>
+            <br>
             <div class='filter'>
-              <input type='text' v-on:keyup.enter='searchAlbums()' class='form-control fontAwesome' id="query" placeholder="&#xf002;"></input>
+              <input type='text' v-on:keyup.enter='searchAlbums()' class='form-control fontAwesome' id="query" placeholder="&#xf002; Search for albums or tracks"></input>
             </div>
             <br>
             <iframe :src="iframeSource" width="555" height="300" frameborder="0" allowtransparency="true"></iframe>
@@ -13,11 +17,17 @@
       <br>
       <div class="row">
         <div class="col-xs-11 col-xs-offset-1  col-sm-6 col-sm-offset-3">
+            <div v-if='startPage' class='albums' v-for="newRelease in newReleases">
+              <img @click='playAlbum' class='rounded' height='127' width='127' :src='newRelease[0]' :albumId='newRelease[2]' :alt='newRelease[1]'>  
+            </div>
             <div class='albums' v-for="album in albums">
               <img @click='playAlbum' class='rounded' height='127' width='127' :src='album[0]' :albumId='album[2]' :alt='album[1]'>  
             </div>
             <div class='albums' v-for="track in tracks">
               <img @click='playAlbum' class='rounded' height='127' width='127' :src='track[0]' :albumId='track[2]' :alt='track[1]'>  
+            </div>
+            <div class='footer'>
+              <h5>Made with <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> using Vue.js!<h5>
             </div>
         </div>
       </div>
@@ -33,14 +43,41 @@
       return {
         albums: [],
         tracks: [],
-        iframeSource: ''
+        startPage: true,
+        iframeSource: '',
+        newReleases: [
+          ["https://i.scdn.co/image/f56f23cbd3783f8594a4871ca0424ffb9de7a5cd", "Culture", "2AvupjUeMnSffKEV05x222"],
+          ["https://i.scdn.co/image/990f7ee5c06a8d53c89fbf01a8237fd82a5d7580", "SweetSexySavage (Deluxe)", "4B4in9QlrlYWSHlYSRebdC"],
+          ["https://i.scdn.co/image/fdf1443bb7b2d6a3a6bb458bd5a1a2079a50e39c", "Run Up", "5tk1rHDB0ZcqTAU7XDqKwA"],
+          ["https://i.scdn.co/image/9d838ad5190c61ff09be379040addb53597b7f2d", "Scared To Be Lonely", "2v9rQe4F8fVSh5v8bAq0jF"],
+          ["https://i.scdn.co/image/0b7ccca6cefb6724b7c8079fa6fc3900b4fd7623", "Three Stripes =", "1tRQI1V8yRxXp6BjwXrT73"],
+          ["https://i.scdn.co/image/05d37ef973cea3a00c7394ba080e61ce69a774a7", "So Good", "1ARNgMt8ImDsEZyjgjyntF"],
+          ["https://i.scdn.co/image/a8f82298052fdfd8048833785125e540037de0eb", "a girl a bottle a boat", "26OJfCFh7u9WmHd3Y3q8IS"],
+          ["https://i.scdn.co/image/a8f82298052fdfd8048833785125e540037de0eb", "Stay Lonely", "4hkTlNKpcO5IEakjAq5hik"],
+          ["https://i.scdn.co/image/bcc19aae19d5cad1792128d963b0d728c6469365", "Road Less Traveled", "296hswDnxvymjboFBxvmI5"],
+          ["https://i.scdn.co/image/06976979b4098f0270aa12c8f25ce5e25f647083", "Keep Your Eyes On Me", "06o6awRCJVegIhDkg1tZUy"],
+          ["https://i.scdn.co/image/583e15a010fdce0fe18fa56d3272a5f78a4686a8", "Pure Comedy", "42Jk84IC8I3dIDtA0mqhaR"],
+          ["https://i.scdn.co/image/552ccf50cd572d2bfa251c39aac760158601b707", "Near To The Wild Heart Of Life", "26hqnB0XF1ZFc31zY6NAgf"],
+          ["https://i.scdn.co/image/c43eb06a4b468177e7278a3339f53f6d03227648", "Cave Me In", "3no6YVGaUUBPQjfeUbajXL"],
+          ["https://i.scdn.co/image/9fbe99dd3330b2b7e855c853ec31f7c6c9a6c6e0", "I'm Better (feat. Lamb)", "2gwnDKLNmXaF1LYVxRiRmB"],
+          ["https://i.scdn.co/image/b760eb0acb0f779f84e01d79767e744a4979c6fe", "Trouble", "5l0jX2G4qAtBM6bw22iVDn"],
+          ["https://i.scdn.co/image/4425c30edd285fca42038d8afe1e1d52fd529e13", "I Think She Like Me", "5M8Yvdw3908JEtUpEZ9VOo"],
+          ["https://i.scdn.co/image/5ac2625ac3691e6d9809fc856fdcec34d65d90cc", "Love Is Alive", "0i7gI9SlKIZxdz2Jl2dyfp"],
+          ["https://i.scdn.co/image/cee9e087fe1bea0a52f2e5ee4f28c5aeaa6c6007", "Darling", "45zccaZrkPvaq6kIDYo0pz"],
+          ["https://i.scdn.co/image/ef2d5556a5d6afb5f148e9181ae668ea4b14c1c5", "Three Worlds: Music From Woolf Works", "4fo551Vy3KXbbRxRlVTD9D"],
+          ["https://i.scdn.co/image/a2ff14065f68b8e7f9584c6d18866b002ca6b866", "Life Without Sound", "4xT80zh4DhVGVdc3QTObav"]
+        ]
       }
     }, 
+    mounted(){
+      this.getNewReleases();
+    },
     methods: {
       searchAlbums: function(query){
         this.albums = [];
         query = document.getElementById('query').value;
         let that = this;
+        this.startPage = false;
 
         this.$http.get('https://api.spotify.com/v1/search', {params:  {query: query, type: 'album'}})
           .then(res => {
@@ -52,9 +89,23 @@
               that.albums.push([image, title, albumId]);
             }
             let iframeSource = 'https://embed.spotify.com/?uri=spotify:album:' + that.albums[0][2] + '&theme=white';
-            this.iframeSource = iframeSource;
-            this.searchTracks(query);
+            that.iframeSource = iframeSource;
+            that.searchTracks(query);
         });
+      },
+      getNewReleases: function(){
+        let that = this;
+        // this.$http.get('https://api.spotify.com/v1/browse/new-releases', {headers: {'Authorization': 'Bearer BQDGoUNYpRGfZCF2qtiBFzyBDhLRyD6nKWtH4v9gtUwX2j0qXrfK2qKzIwsZAux1dk8g7DtvZQ3-tlHCShOOXEwpunaqdxPONcOFojpSdpFoZGsKxl3oFagqe3tVt_TCt2gcyunSKAhIZWfcFl7BuVMEroE'}})
+        //   .then(res => {
+        //     for (var i = 0; i < res.body.albums.items.length; i++){
+        //       let image = res.body.albums.items[i].images[0].url;
+        //       let title = res.body.albums.items[i].name;
+        //       let albumId = res.body.albums.items[i].id;
+        //       that.newReleases.push([image, title, albumId]);
+        //     }
+        // });
+        let iframeSource = 'https://embed.spotify.com/?uri=spotify:album:' + that.newReleases[0][2] + '&theme=white';
+        that.iframeSource = iframeSource;
       },
       searchTracks: function(query){
         this.tracks = [];
@@ -109,13 +160,34 @@
 </script>
 
 <style scoped>
+  .head {
+    height: 100px;
+    width: 555px;
+    border-radius: 3px;
+    background-color: #3897f0;
+  }
+  .glostick {
+    background-color: #867DCC;
+    border-radius: 3px;
+    width: 555px;
+    height: 100px;
+  }
+  .glyphicon-tint {
+    padding-top: 37px;
+    padding-left: 272px;
+    font-size: 1.7em;
+    color: #fff;
+  }
   .filter {
     padding: 40px;
     background: #efefef;
     border-radius: 3px;
   }
   h5 {
-    display: inline;
+    font-family: 'Roboto';
+    color: #fff;
+    text-align: center;
+    padding-top: 43px;
   }
   .albums {
     padding-left: 10px;
@@ -143,11 +215,10 @@
   .fontAwesome {
     font-family: 'Helvetica', FontAwesome, sans-serif;
   }
-  iframe {
-    /*border: 10px solid #fff;*/
-    /*border: 5px;
-    border-radius: 5px;
-    border-color: #efefef;*/
-    /*margin-left: 125px;*/
+  .footer {
+    height: 100px;
+    width: 555px;
+    border-radius: 3px;
+    background-color: #3897f0
   }
 </style>
