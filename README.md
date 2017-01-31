@@ -1,6 +1,6 @@
 ## Description
 
-This project was created using Vue.js, Node.js, Express.js and Spotify's Web API. Search for albums, tracks and enjoy!
+This project was created using Vue.js, Node.js, Express.js and Spotify's Web API. Search, listen and enjoy!
 
 ##Demo
 
