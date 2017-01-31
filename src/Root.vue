@@ -94,18 +94,8 @@
         });
       },
       getNewReleases: function(){
-        let that = this;
-        // this.$http.get('https://api.spotify.com/v1/browse/new-releases', {headers: {'Authorization': 'Bearer BQDGoUNYpRGfZCF2qtiBFzyBDhLRyD6nKWtH4v9gtUwX2j0qXrfK2qKzIwsZAux1dk8g7DtvZQ3-tlHCShOOXEwpunaqdxPONcOFojpSdpFoZGsKxl3oFagqe3tVt_TCt2gcyunSKAhIZWfcFl7BuVMEroE'}})
-        //   .then(res => {
-        //     for (var i = 0; i < res.body.albums.items.length; i++){
-        //       let image = res.body.albums.items[i].images[0].url;
-        //       let title = res.body.albums.items[i].name;
-        //       let albumId = res.body.albums.items[i].id;
-        //       that.newReleases.push([image, title, albumId]);
-        //     }
-        // });
-        let iframeSource = 'https://embed.spotify.com/?uri=spotify:album:' + that.newReleases[0][2] + '&theme=white';
-        that.iframeSource = iframeSource;
+        let iframeSource = 'https://embed.spotify.com/?uri=spotify:album:' + this.newReleases[0][2] + '&theme=white';
+        this.iframeSource = iframeSource;
       },
       searchTracks: function(query){
         this.tracks = [];
