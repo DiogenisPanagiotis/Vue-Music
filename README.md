@@ -1,12 +1,10 @@
-This project was created using Vue.js, Node.js, & Express.js. 
+## Description
+
+This project was created using Vue.js, Node.js, Express.js and Spotify's Web API. Search for albums, tracks and enjoy!
 
 ##Demo
 
 https://vue-music.herokuapp.com
-
-## Description
-
-Search for music albums, listen and enjoy!
 
 ## Usage
 
@@ -18,4 +16,4 @@ Use npm start to load the application for development.
 
 ## API
 
-This application leveraged Spotify's API: https://developer.spotify.com/web-api/
+This application leveraged Spotify's API: https://developer.spotify.com/web-api
