@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, './dist')));
 
 var webpack = require('webpack');
-var webpackConfig = require('./webpack.config');
+var webpackConfig = require('../webpack.config');
 var compiler = webpack(webpackConfig);
 app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: '/'

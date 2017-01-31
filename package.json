@@ -2,7 +2,7 @@
   "name": "vue-project",
   "version": "1.0.0",
   "description": "Vue, listen and enjoy!",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
