@@ -27,8 +27,7 @@
               <img @click='playAlbum' class='rounded' height='127' width='127' :src='track[0]' :albumId='track[2]' :alt='track[1]'>  
             </div>
             <div class='footer'>
-              <!--<h5 class='madeWith'>MADE WITH <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> USING VUE.JS<h5>-->
-              <h5 class='madeWith'>POWERED BY VUE.JS<h5>
+              <h5 class='madeWith'><i class="fa fa-cloud" aria-hidden="true"></i><h5>
             </div>
             <div class='footer2'>
               <div class='row'>
@@ -196,7 +195,7 @@
     font-family: 'Roboto';
     color: #fff;
     text-align: center;
-    padding-top: 43px;
+    padding-top: 40px;
   }
   .albums {
     padding-left: 10px;
@@ -251,5 +250,12 @@
   }
   .col-sm-3 {
     padding-top: 25px;
+  }
+  .fa-cloud {
+    font-size: 1.7em;
+    color: #fff;
+  }
+  .fa-cloud:hover {
+    color: #4D3982;
   }
 </style>
