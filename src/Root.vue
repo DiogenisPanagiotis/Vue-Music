@@ -27,7 +27,22 @@
               <img @click='playAlbum' class='rounded' height='127' width='127' :src='track[0]' :albumId='track[2]' :alt='track[1]'>  
             </div>
             <div class='footer'>
-              <h5>Made with <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> using Vue.js!<h5>
+              <!--<h5 class='madeWith'>MADE WITH <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> USING VUE.JS<h5>-->
+              <h5 class='madeWith'>POWERED BY VUE.JS<h5>
+            </div>
+            <div class='footer2'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='col-sm-3 col-sm-offset-3'>
+                    <h6><a href='mailto:diogenis.panagiotis@gmail.com'>Email</a><h6>
+                    <h6><a href='linkedin.com/in/DiogenisPanagiotis'>LinkedIn</a><h6>
+                  </div>
+                  <div class='col-sm-3 col-sm-offset-1'>
+                    <h6><a href='github.com/DiogenisPanagiotis'>Github</a><h6>
+                    <h6><a href='angel.co/diogenispanagiotis'>Angel</a><h6>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
       </div>
@@ -169,6 +184,9 @@
     font-size: 1.7em;
     color: #fff;
   }
+  .glyphicon-tint:hover {
+    color: #4D3982;
+  }
   .filter {
     padding: 40px;
     background: #efefef;
@@ -211,5 +229,27 @@
     width: 555px;
     border-radius: 3px;
     background-color: #7C5CD1;
+  }
+  .footer2 {
+    height: 100px;
+    width: 555px;
+    border-radius: 3px;
+    background-color: #3A3F44;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .madeWith {
+    /*color: #4D3982;    */
+    font-size: 14px;
+    color: #fff;    
+  }
+  a {
+    color: #fff;
+  }
+  h6 {
+    font-size: 11px;
+  }
+  .col-sm-3 {
+    padding-top: 25px;
   }
 </style>
