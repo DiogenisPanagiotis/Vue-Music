@@ -6,17 +6,20 @@ import Root from './Root.vue';
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
-let router = new VueRouter({
-  routes: [
-    {
-      path: '/',
-      name: 'root',
-      component: Root
-    }
-  ]
+const routes = [
+  {
+    path: '/',
+    name: 'root',
+    component: Root
+  }
+];
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
 });
 
 new Vue({
   router,
-  template: '<div><router-view class="view"></router-view></div>'
+  template: '<router-view class="view"></router-view>'
 }).$mount('#app');
